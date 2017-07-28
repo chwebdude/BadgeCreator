@@ -4,6 +4,17 @@
     "name": "Badge Creator",
     "version": "1.0.0",
     "publisher": "chwebdude",
+    "tags": [
+        "Badge",
+        "Extension",
+        "Marketplace",
+        "Package",
+        "Install",
+        "Continuous Integration",
+        "Continuous Delivery",
+        "Build",
+        "Release"
+    ],
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
@@ -53,5 +64,21 @@
         {
             "path": "images/extension-icon.png"
         }
-    ]
+    ],
+
+    "links": {
+        "repository": {
+        "uri": "https://github.com/chwebdude/BadgeCreator"
+        },
+        "issues": {
+        "uri": "https://github.com/chwebdude/BadgeCreator/issues"
+        },
+        "support": {
+        "uri": "https://github.com/chwebdude/BadgeCreator"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/chwebdude/BadgeCreator"
+    }
 }
