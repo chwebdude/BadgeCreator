@@ -1,7 +1,7 @@
 # Badge Creator
 Simple Badge creating using [shields.io](https://shields.io)
 
-![Overview](images/overview.jpg)
+![Overview](https://raw.githubusercontent.com/chwebdude/BadgeCreator/master/images/overview.jpg)
 
 ## Options
 ### Name
@@ -15,6 +15,6 @@ Color of the right side of the badge.
 ### Style
 Style of the badge.
 
-![Styles](images/styles.jpg)
+![Styles](https://raw.githubusercontent.com/chwebdude/BadgeCreator/master/images/styles.jpg)
 ### Proxy
 If the build agent is behind a corporate proxy, the proxy url must be provided. Otherwise node.js can not connect to the shields.io API.
