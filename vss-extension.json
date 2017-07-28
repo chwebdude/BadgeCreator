@@ -1,0 +1,49 @@
+{
+    "manifestVersion": 1,
+    "id": "badge-creator",
+    "name": "Badge Creator",
+    "version": "1.0.0",
+    "publisher": "chwebdude",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Tool for creating version badge using shields.io.",
+    "categories": [
+        "Build and release"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"        
+    },
+    "files": [
+        {
+            "path": "buildtask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "custom-build-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "buildtask"
+            }
+        }
+    ],
+    "content":{
+        "details":{
+            "path": "Readme.md"
+        }
+    },
+    "screenshots":[
+        {
+            "path": "images/overview.jpg"
+        },
+        {
+            "path": "images/extension-icon.png"
+        }
+    ]
+}
