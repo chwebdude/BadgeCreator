@@ -18,7 +18,15 @@
     },
     "files": [
         {
-            "path": "buildtask"
+            "path": "buildtask/dist/index.js"
+        },{
+            "path": "buildtask/node_modules"
+        },{
+            "path": "buildtask/task.json"
+        },{
+            "path": "buildtask/icon.png"
+        },{
+            "path": "buildtask/dist/badgeCreator.js"
         }
     ],
     "contributions": [
