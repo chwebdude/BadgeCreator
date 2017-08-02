@@ -4,6 +4,7 @@
     "name": "Badge Creator",
     "version": "1.0.0",
     "publisher": "chwebdude",
+    "public": true,
     "tags": [
         "Badge",
         "Extension",

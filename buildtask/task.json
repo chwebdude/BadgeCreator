@@ -5,7 +5,7 @@
     "description": "Tool for creating version badge using shields.io",
     "helpMarkDown": "",
     "category": "Utility",
-    "author": "fabrice-andreis",
+    "author": "chwebdude",
     "version": {
         "Major": 1,
         "Minor": 0,
