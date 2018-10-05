@@ -61,7 +61,7 @@
             },
             "helpMarkDown": "The Color of the right side."
         },
-
+        
         {
             "name": "style",
             "type": "pickList",
@@ -75,8 +75,16 @@
             },
             "helpMarkDown": "The style of the badge. See https://shields.io/#styles"
         },
-
-         {
+        {
+            "name": "appendDate",
+            "type": "boolean",
+            "label": "Append Date",
+            "defaultValue": false,
+            "required": false,
+            "helpMarkDown": "Append the date into the badge ",
+            "groupName": "advanced"
+        },
+        {
             "name": "proxyUrl",
             "type": "string",
             "label": "Proxy Url",
@@ -84,7 +92,7 @@
             "required": false,
             "helpMarkDown": "Proxy url. Example: http://yourproxy:8080 ",
             "groupName": "advanced"
-        }
+        }       
     ],
     "execution": {
         "Node": {
