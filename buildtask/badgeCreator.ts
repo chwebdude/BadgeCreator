@@ -10,10 +10,9 @@ export function createBadge(name : string, version:string, destinationPath:strin
 
     console.log("File Destination: "+destinationPath);
     ensureDirectoryExistence(destinationPath);
-    var date:string = new Date(Date.now()).toString();
-    date = date.substring()
+    let date:string = new Date(Date.now()).toDateString();
     var file = fs.createWriteStream(destinationPath);
-    version = appendDate ? (version + "_" + Date.now()) : version;
+    version = appendDate ? `${version}_${date}` : version;
 
     console.log("Destination path: "+file.path);
     var url:string = `https://img.shields.io/badge/${name}-${version}-${color}.svg?style=${style}`;
