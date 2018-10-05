@@ -10,6 +10,8 @@ export function createBadge(name : string, version:string, destinationPath:strin
 
     console.log("File Destination: "+destinationPath);
     ensureDirectoryExistence(destinationPath);
+    var date:string = new Date(Date.now()).toString();
+    date = date.substring()
     var file = fs.createWriteStream(destinationPath);
     version = appendDate ? (version + "_" + Date.now()) : version;
 
