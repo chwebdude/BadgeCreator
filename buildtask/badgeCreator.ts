@@ -5,8 +5,8 @@ import request = require('request');
 
 export function createBadge(name : string, version:string, destinationPath:string,  color:string, style:string, proxy:string) {
     
-    name = name.replace("-", "--").replace("_", "__");
-    version = version.replace("-", "--").replace("_", "__");
+    name = name.split('-').join('--').split('_').join('__');
+    version = version.split('-').join('--').split('_').join('__');
     
     console.log("File Destination: "+destinationPath);
     ensureDirectoryExistence(destinationPath);
