@@ -15,6 +15,7 @@ steps:
     version: 'v0.7.x'
 
 - task: QueryAzureDevOpsExtensionVersion@2
+  displayName: Query prerelease
   inputs:
     connectTo: 'VsTeam'
     connectedServiceName: 'Marketplace'
@@ -22,6 +23,18 @@ steps:
     extensionId: 'badge-creator-prerelease'
     versionAction: 'Minor'
     setBuildNumber: 'true'
+  condition: ne(variables['Build.SourceBranch'], 'refs/heads/master')
+
+- task: QueryAzureDevOpsExtensionVersion@2
+  displayName: Query Release
+  inputs:
+    connectTo: 'VsTeam'
+    connectedServiceName: 'Marketplace'
+    publisherId: 'chwebdude'
+    extensionId: 'badge-creator'
+    versionAction: 'Minor'
+    setBuildNumber: 'true'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
 
 - task: Yarn@3
   inputs:
@@ -34,11 +47,11 @@ steps:
     projectPath: 'buildtask'
 
 - task: PublishAzureDevOpsExtension@2
+  displayName: Publish prerelease
   inputs:
     connectTo: 'VsTeam'
     connectedServiceName: 'Marketplace'
     fileType: 'manifest'
-    publisherId: 'chwebdude'
     extensionId: 'badge-creator-prerelease'
     extensionName: 'badge-creator-prerelease'
     extensionVersion: '$(Build.BuildNumber)'
@@ -46,3 +59,13 @@ steps:
     extensionVisibility: 'private'
     extensionPricing: 'free'
     shareWith: 'webdude'
+  condition: ne(variables['Build.SourceBranch'], 'refs/heads/master')
+
+- task: PublishAzureDevOpsExtension@2
+  displayName: Publish Release
+  inputs:
+    connectTo: 'VsTeam'
+    connectedServiceName: 'Marketplace'
+    fileType: 'manifest'
+    extensionVersion: '$(Build.BuildNumber)'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
