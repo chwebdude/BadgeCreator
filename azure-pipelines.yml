@@ -19,7 +19,7 @@ steps:
     connectTo: 'VsTeam'
     connectedServiceName: 'Marketplace'
     publisherId: 'chwebdude'
-    extensionId: 'badge-creator'
+    extensionId: 'badge-creator-prerelease'
     versionAction: 'Minor'
     setBuildNumber: 'true'
 
