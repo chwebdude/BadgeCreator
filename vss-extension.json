@@ -23,7 +23,7 @@
     ],    
     "description": "Tool for creating version badge using shields.io.",
     "categories": [
-        "Build and release"
+        "Azure Pipelines"
     ],
     "icons": {
         "default": "images/extension-icon.png"        

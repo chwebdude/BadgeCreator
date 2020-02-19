@@ -1,0 +1,71 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: TfxInstaller@2
+  inputs:
+    version: 'v0.7.x'
+
+- task: QueryAzureDevOpsExtensionVersion@2
+  displayName: Query prerelease
+  inputs:
+    connectTo: 'VsTeam'
+    connectedServiceName: 'Marketplace'
+    publisherId: 'chwebdude'
+    extensionId: 'badge-creator-prerelease'
+    versionAction: 'Minor'
+    setBuildNumber: 'true'
+  condition: ne(variables['Build.SourceBranch'], 'refs/heads/master')
+
+- task: QueryAzureDevOpsExtensionVersion@2
+  displayName: Query Release
+  inputs:
+    connectTo: 'VsTeam'
+    connectedServiceName: 'Marketplace'
+    publisherId: 'chwebdude'
+    extensionId: 'badge-creator'
+    versionAction: 'Minor'
+    setBuildNumber: 'true'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+
+- task: Yarn@3
+  inputs:
+    projectDirectory: 'buildtask'
+    productionMode: true
+
+- task: compile-type-script@1
+  inputs:
+    compileType: '1'
+    projectPath: 'buildtask'
+
+- task: PublishAzureDevOpsExtension@2
+  displayName: Publish prerelease
+  inputs:
+    connectTo: 'VsTeam'
+    connectedServiceName: 'Marketplace'
+    fileType: 'manifest'
+    extensionId: 'badge-creator-prerelease'
+    extensionName: 'badge-creator-prerelease'
+    extensionVersion: '$(Build.BuildNumber)'
+    updateTasksId: true
+    extensionVisibility: 'private'
+    extensionPricing: 'free'
+    shareWith: 'webdude'
+  condition: ne(variables['Build.SourceBranch'], 'refs/heads/master')
+
+- task: PublishAzureDevOpsExtension@2
+  displayName: Publish Release
+  inputs:
+    connectTo: 'VsTeam'
+    connectedServiceName: 'Marketplace'
+    fileType: 'manifest'
+    extensionVersion: '$(Build.BuildNumber)'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
