@@ -45,3 +45,4 @@ steps:
     updateTasksId: true
     extensionVisibility: 'private'
     extensionPricing: 'free'
+    shareWith: 'webdude'
